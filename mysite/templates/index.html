@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>PennApps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ STATIC_URL}}css/signin.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#"><img id="logo" src="{{ STATIC_URL}}res/logo.png"/></a>
+	</div>
+	<div class="navbar-collapse collapse">
+	  <div class="nav navbar-nav navbar-right">
+	    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg signin">Sign in</a>
+	  </div>
+	</div>
+      </div>
+
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	 aria-hidden="true">
+      <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	      &times;
+	    </button>
+	    <h4>Sign in</h4>
+	  </div>
+	  <div class="modal-body">
+	    <form class="form-signin">
+	      <h2 class="form-signin-heading">Please sign in</h2>
+	      <input type="text" class="form-control" placeholder="Email address" autofocus>
+	      <input type="password" class="form-control" placeholder="Password">
+	      <label class="checkbox">
+		<input type="checkbox" value="remember-me">Remember me
+	      </label>
+	      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	      <button class="btn btn-lg btn-default btn-block" data-dismiss="modal">Close</button>
+	    </form>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <div class="container blurb">
+      <p>Manage your organization's expenses the right way.</p>
+    </div>
+
+    <div class="container">
+      <div class="signup row">
+	<div class="col-md-6">
+	  <!--<a href="http://www.google.com"><button class="btn btn-lg btn-primary btn-block">Sign up as user</button></a>-->
+	  <a href="http://www.facebook.com"><img src="{{ STATIC_URL}}res/organization.png"/></a>
+	</div>
+	<div class="col-md-6">
+	  <!--<button class="btn btn-lg btn-primary btn-block">Sign up as admin</button>-->
+	  <a href="http://www.twitter.com"><img src="{{ STATIC_URL}}res/individual.png"/></a>
+	</div>
+      </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

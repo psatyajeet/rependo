@@ -1,0 +1,102 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    background-color: #eee;
+
+    background: url('/static/res/splash.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#logo {
+    margin-top: -5px;
+    height: 30px;
+    width: auto;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bttom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.5);
+    height: 30px;
+}
+
+.navbar .navbar-right {
+    padding-top: 10px;
+}
+
+.navbar .navbar-right .btn {
+    margin-top: -3px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.signin {
+    overflow-y: auto;
+}
+
+.signup {
+    padding-top: 100px;
+}
+
+.signup .btn {
+    font-size: 32px;
+    max-width: 400px;
+    margin: 15px auto;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.signup .col-md-6 {
+    text-align: center;
+}
+
+.blurb {
+    padding-top: 92px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #1a4e75;
+    text-shadow: 2px 2px white;
+    text-align: center;
+}
