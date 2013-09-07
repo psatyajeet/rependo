@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block main %}
+
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><img id="logo" src="{{ STATIC_URL}}res/whitelogo.png"/></a>
+    </div>
+  </div>
+</div>
+
+<form class="form-signup">
+  <h2 class="form-signup-heading">Individual Sign Up</h2>
+  <input type="text" class="form-control" placeholder="Email address" autofocus>
+  <input type="password" class="form-control" placeholder="Password">
+  <input type="text" class="form-control" placeholder="Division">
+  <input type="text" class="form-control" placeholder="Organization code">
+  <p>Note: Request an organization code from your organization administrator. </p>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+</form>
+
+{% endblock main %}

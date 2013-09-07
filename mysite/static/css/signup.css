@@ -1,0 +1,41 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+
+#logo {
+    margin-top: -5px;
+    height: 30px;
+    width: auto;
+}
+
+.navbar {
+    background: #1a4e75;
+    height: 30px;
+}
+
+.form-signup {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signup .form-signup-heading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-signup p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-signup .btn {
+    margin-top: 30px;
+    background-color: #1a4e75;
+}
+
+.form-signup .btn:hover {
+    background-color: #2d6fa1;
+}

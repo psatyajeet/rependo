@@ -70,6 +70,11 @@ body {
     margin-top: -3px;
     padding-top: 4px;
     padding-bottom: 4px;
+    background-color: #1a4e75;
+}
+
+.navbar .navbar-right .btn:hover {
+    background-color: #2d6fa1;
 }
 
 .signin {

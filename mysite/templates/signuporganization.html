@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block main %}
+
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+   <div class="navbar-header">
+    <a class="navbar-brand" href="/"><img id="logo" src="{{ STATIC_URL}}res/whitelogo.png"/></a>
+   </div>
+ </div>
+</div>
+
+<form class="form-signup">
+  <h2 class="form-signup-heading">Organization Sign Up</h2>
+  <input type="text" class="form-control" placeholder="Email address" autofocus>
+  <input type="password" class="form-control" placeholder="Password">
+  <input type="text" class="form-control" placeholder="Organization">
+  <input type="text" class="form-control" placeholder="Organization code">
+  <p>Note: The organization code must be shared with employees to grant them access to reimbursements from your organization.</p>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+</form>
+</div>
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock main %}
