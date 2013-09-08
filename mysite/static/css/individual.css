@@ -1,0 +1,61 @@
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    background-color: #eee;
+    overflow-y: scroll;
+}
+
+#logo {
+    margin-top: -5px;
+    height: 30px;
+    width: auto;
+}
+
+.logout {
+    margin-top: -3px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #1a4e75;
+}
+
+.logout:hover {
+    background-color: #2d6fa1;
+}
+
+.navbar .navbar-right {
+    padding-top: 10px;
+}
+
+.navbar {
+    background: #1a4e75;
+    height: 30px;
+}
+
+.panel-group .panel .panel-heading {
+    background-color: #6fb4e8;
+}
+
+.add-project {
+    margin-top: 20px;
+    background-color: #1a4e75;
+}
+
+.add-project:hover {
+    background-color: #2d6fa1;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -30px;
+    padding: 0 0 60px;
+}
+
+#footer {
+    height: 30px;
+}

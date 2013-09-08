@@ -1,9 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login 
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth import logout
+from django.utils import simplejson
 
 from reimbursement.forms import *
 from reimbursement.models import *
@@ -18,14 +21,17 @@ def index(request):
 def login(request):
     if request.method == 'POST': # If the form has been submitted...
         form = LoginForm(request.POST) # A form bound to the POST data
-        username = request.POST['email']
+        username = request.POST['email'].split('@')[0]
         password = request.POST['password']
         user = authenticate(username=username, password=password)
+        print username, password
+        print user
         if user is not None:
             # the password verified for the user
             if user.is_active:
-                #login(request, user)
-                return HttpResponse("User is valid, active and authenticated")
+                auth_login(request, user)
+                #request.session['user_id']=user.id
+                return redirect('home_individual')
             else:
                 return HttpResponse("The password is valid, but the account has been disabled!")
         else:
@@ -78,7 +84,7 @@ def signup_organization(request):
         name = request.POST['name']
         code = request.POST['code']
 
-        user = User.objects.create_user(name, username, password)
+        user = User.objects.create_user(username.split('@')[0], username, password)
 
         organization = OrganizationUser()
         organization.user=user
@@ -95,3 +101,23 @@ def signup_organization(request):
     return render(request, 'signuporganization.html', {
         'form': form,
     })
+
+def home_individual(request):
+    if request.user.is_authenticated():
+        individual=IndividualUser.objects.get(user_id=request.user.id)
+        projects=Project.objects.filter(company_id__exact=individual.company_id)
+        return render_to_response('individual.html', {"user": request.user, "projects": projects})
+    else:
+        return HttpResponse("NOT VALID")
+
+
+def home_organization(request):
+    if request.user.is_authenticated():
+        return render_to_response('individual.html')
+    else:
+        return HttpResponse("NOT VALID")
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
