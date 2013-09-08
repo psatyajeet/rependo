@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.utils import simplejson
 from decimal import *
+from django.core.urlresolvers import reverse
+import requests
 
 
 from reimbursement.forms import *
@@ -26,8 +28,6 @@ def login(request):
         username = request.POST['email'].split('@')[0]
         password = request.POST['password']
         user = authenticate(username=username, password=password)
-        print username, password
-        print user
         if user is not None:
             # the password verified for the user
             if user.is_active:
@@ -119,11 +119,16 @@ def home_individual(request):
 
 def home_organization(request):
     if request.user.is_authenticated():
-        organization=OrganizationUser.objects.get(user_id=request.user.id)
-        projects=Project.objects.filter(company_id__exact=organization.id)
-        for project in projects:
-            project.expenses=Expense.objects.filter(project_id__exact=project.id)
-        return render_to_response('organization.html', {"user": request.user, "projects": projects})
+        if 'access' in request.session:
+            organization=OrganizationUser.objects.get(user_id=request.user.id)
+            projects=Project.objects.filter(company_id__exact=organization.id)
+            for project in projects:
+                project.expenses=Expense.objects.filter(project_id__exact=project.id)
+                project.individual=IndividualUser.objects.get(company_id=project.company_id)
+                project.claimUser=User.objects.get(id=project.individual.user_id)
+            return render_to_response('organization.html', {"user": request.user, "projects": projects})
+        else:
+            return redirect('https://api.venmo.com/oauth/authorize?client_id=%s&scope=make_payments,access_profile&response_type=code' % 1360)
     else:
         return HttpResponse("NOT VALID")   
 
@@ -164,11 +169,24 @@ def add_project(request):
 
 def approve_project(request):
     if request.user.is_authenticated() and OrganizationUser.objects.filter(user=request.user):
-        if request.method == "GET":
-            project=request.GET['project']
+        projectname="Exhibition"
+        email="psatyajeet@gmail.com"
+        amount=0.01
+        payload={"access_token":request.session['access'], "note": projectname, "email": email, "amount":amount}
+        r=requests.post("https://api.venmo.com/payments", data=payload)
+        if r.status_code is not 200:
+            params=r.json()
+        print request.session['access']
+        print r
+        return HttpResponse(r)
 
     else:
         return HttpResponse("NOT VALID")
+
+def oauth(request):
+    request.session['access']=request.GET.get('code', '')
+    print request.GET.get('code', '')
+    return redirect('home_organization')
 
 def logout_view(request):
     logout(request)

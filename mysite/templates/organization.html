@@ -31,9 +31,9 @@
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne">
-							<b>{{project.name}}</b><br> <i>Marketing</i>
+							<b>{{project.name}}</b><br>{{project.claimUser.username}} <i>{{project.individual.division}}</i>
 						</a>
-						<p class="pull-right">Total: <b>$10</b></p>
+						<p class="pull-right">Total: <b>${{project.total_cost}}</b></p>
 					</h4>
 				</div>
 				<div id="collapseOne" class="panel-collapse">
@@ -55,7 +55,7 @@
 
 						<div class="pull-right">
 							<a href="#"><button class="btn btn-danger" >Deny</button></a>
-							<a href="/approve"><button class="btn btn-success">Approve</button></a>
+							<a href="/approve?project=1"><button class="btn btn-success">Approve</button></a>
 						</div>
 					</div>
 				</div>
