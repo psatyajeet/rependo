@@ -29,6 +29,8 @@ class Project(models.Model):
     name = models.CharField(max_length=30)
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
     created_date = models.DateTimeField(default=datetime.now,blank=True)
+    is_accepted = models.BooleanField(default=False)
+    is_denied = models.BooleanField(default=False)
 
 class Expense(models.Model):
     project=models.ForeignKey(Project)

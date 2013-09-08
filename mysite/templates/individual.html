@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 {% block main %}
+<link rel="stylesheet" href="/static/css/individual.css">
 
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
@@ -16,17 +17,19 @@
 
 <h2>Welcome, {{ user }}!</h2>
 
+<a href="/addproject"><button class="btn btn-lg btn-primary add-project">+ Add Project</button></a>
+
 <div class="panel-group" id="accordion">
 	{% for project in projects %}
-	<div class="panel panel-default">
-		<div class="panel-heading accordion-toggle" data-toggle="collapse" data-target="#collapseOne" href="#collapseOne">
+	<div class="panel panel-default" data-toggle="collapse" data-target="#collapse" href="#collapse">
+		<div class="panel-heading accordion-toggle">
 			<h4 class="panel-title">
 				{{ project.name}}
 				
 				<p class="pull-right">Total: {{ project.total_cost }} </p>
 			</h4>
 		</div>
-		<div id="collapseOne" class="panel-collapse collapse">
+		<div id="collapse" class="panel-collapse">
 			<div class="panel-body">
 				<table class="table table-striped">
 					<tr>
@@ -34,131 +37,21 @@
 						<th>Cost</th>
 						<th>Attachment</th>
 					</tr>
+					{% for expense in project.expenses %}
 					<tr>
-						<td>Scissors</td>
-						<td>$5</td>
-						<td><input type="file"/></td>
+						<td>{{expense.name}}</td>
+						<td>${{expense.cost}}</td>
+						<td></td>
 					</tr>
-					<tr>
-						<td>Pencils</td>
-						<td>$2</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Paper</td>
-						<td>$3</td>
-						<td><input type="file"/></td>
-					</tr>
+					{% endfor %}
 				</table>
 			</div>
 		</div>
 	</div>
 	{% endfor %} 
-	<div class="panel panel-default">
-		<div class="panel-heading accordion-toggle" data-toggle="collapse" data-target="#collapseOne" href="#collapseOne">
-			<h4 class="panel-title">
-				Project 1: lolwtf
-				
-				<p class="pull-right">Total: $10</p>
-			</h4>
-		</div>
-		<div id="collapseOne" class="panel-collapse collapse">
-			<div class="panel-body">
-				<table class="table table-striped">
-					<tr>
-						<th>Description</th>
-						<th>Cost</th>
-						<th>Attachment</th>
-					</tr>
-					<tr>
-						<td>Scissors</td>
-						<td>$5</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Pencils</td>
-						<td>$2</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Paper</td>
-						<td>$3</td>
-						<td><input type="file"/></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-				<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo">
-					Project 2: lolwtfzzzz
-				</a>
-				<p class="pull-right">Total: $30</p>
-			</h4>
-		</div>
-		<div id="collapseTwo" class="panel-collapse collapse">
-			<div class="panel-body">
-				<table class="table table-striped">
-					<tr>
-						<th>Description</th>
-						<th>Cost</th>
-						<th>Attachment</th>
-					</tr>
-					<tr>
-						<td>Scissors</td>
-						<td>$5</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Pencils</td>
-						<td>$2</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Paper</td>
-						<td>$3</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Scissors</td>
-						<td>$5</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Pencils</td>
-						<td>$2</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Paper</td>
-						<td>$3</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Scissors</td>
-						<td>$5</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Pencils</td>
-						<td>$2</td>
-						<td><input type="file"/></td>
-					</tr>
-					<tr>
-						<td>Paper</td>
-						<td>$3</td>
-						<td><input type="file"/></td>
-					</tr>
-				</table>
-
-			</div>
-		</div>
-	</div>
 </div>
 
-<button class="btn btn-lg btn-primary add-project pull-right">+ Add Project</button>
+
 
 </div>
 

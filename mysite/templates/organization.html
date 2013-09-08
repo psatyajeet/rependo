@@ -1,0 +1,89 @@
+{% extends "template.html" %}
+{% block main %}
+<link rel="stylesheet" href="/static/css/organization.css">
+
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/"><img id="logo" src="/static/res/whitelogo.png"/></a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<div class="nav navbar-nav navbar-right">
+				<a href="/logout" class="btn btn-primary btn-lg logout">Log out</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h2>Welcome, {{ user }}!</h2>
+
+<ul id="myTab" class="nav nav-tabs">
+	<li><a href="#new" data-toggle="tab">New</a></li>
+	<li><a href="#approved" data-toggle="tab">Approved</a></li>
+	<li><a href="#pending" data-toggle="tab">Pending</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+	<div class="tab-pane fade in" id="new">
+
+		<div class="panel-group" id="accordion">
+			{% for project in projects %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne">
+							<b>{{project.name}}</b><br> <i>Marketing</i>
+						</a>
+						<p class="pull-right">Total: <b>$10</b></p>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse">
+					<div class="panel-body">
+						<table class="table table-striped">
+							<tr>
+								<th>Description</th>
+								<th>Cost</th>
+								<th>Attachment</th>
+							</tr>
+							{% for expense in project.expenses %}
+							<tr>
+								<td>{{expense.name}}</td>
+								<td>${{expense.cost}}</td>
+								<td></td>
+							</tr>
+							{% endfor %}
+						</table>
+
+						<div class="pull-right">
+							<a href="#"><button class="btn btn-danger" >Deny</button></a>
+							<a href="/approve"><button class="btn btn-success">Approve</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
+
+	</div>
+	<div class="tab-pane fade in" id="approved">
+		test2
+	</div>
+	<div class="tab-pane fade in" id="pending">
+		test3
+	</div>
+</div>
+
+
+
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('#myTab a').click(function (e) {
+	e.preventDefault()
+	$(this).tab('show')
+})
+$('#myTab a:first').tab('show')
+</script>
+
+{% endblock main %}

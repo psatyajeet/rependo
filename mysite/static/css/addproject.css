@@ -35,19 +35,6 @@ body {
     height: 30px;
 }
 
-.panel-group .panel .panel-heading {
-    background-color: #6fb4e8;
-}
-
-.add-project {
-    margin-bottom: 15px;
-    background-color: #1a4e75;
-}
-
-.add-project:hover {
-    background-color: #2d6fa1;
-}
-
 #wrap {
     min-height: 100%;
     height: auto !important;
@@ -58,4 +45,47 @@ body {
 
 #footer {
     height: 30px;
+}
+
+.form-add {
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-add .form-add-heading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-add .btn-default {
+    margin-top: 20px;
+}
+
+.form-add p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.project-name {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.form-add .btn-primary {
+    background-color: #1a4e75;
+}
+
+.form-add .btn-primary:hover {
+    background-color: #2d6fa1;
+}
+
+.submit {
+    margin-top: 15px;
+}
+
+.add-expense {
+    max-width: 370px;
+    margin: 0 auto;
 }

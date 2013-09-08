@@ -59,3 +59,18 @@ body {
 #footer {
     height: 30px;
 }
+
+ul li {
+    width: 300px;
+    text-align: center;
+}
+
+.tab-pane {
+    background-color: white;
+    height: 100%;
+    padding: 6px;
+}
+
+.accordion-toggle {
+    cursor: pointer;
+}

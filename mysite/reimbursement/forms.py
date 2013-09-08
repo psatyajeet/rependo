@@ -16,3 +16,6 @@ class SignupIndividualForm(forms.Form):
     division = forms.CharField(max_length=30) 
     code = forms.CharField(max_length=30)
 
+class AddProjectForm(forms.Form):
+	name = forms.CharField(max_length=100)
+
