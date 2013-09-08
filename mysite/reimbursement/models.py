@@ -7,27 +7,23 @@ from django.contrib.auth.models import User
 
 class OrganizationUser(models.Model):
     user = models.ForeignKey(User)
-    name = models.CharField(max_length=30) 
+    code = models.CharField(max_length=30)
     #corporate fields here
 
     class Meta:
-        db_table = 'corporate_user'
+        db_table = 'organization_user'
 
 class IndividualUser(models.Model):
     user = models.ForeignKey(User)
     company = models.ForeignKey(OrganizationUser)
     #Individual user fields here
+    division = models.CharField(max_length=30)
 
     class Meta:
         db_table = 'individual_user'
 
-class Ticket(models.Model):
-    company=models.ForeignKey(OrganizationUser)
-    created_date=models.DateTimeField()
-    modified_date=models.DateTimeField()
-
 class Project(models.Model):
-    ticket=models.ForeignKey(Ticket)
+    company=models.ForeignKey(OrganizationUser)
     name = models.CharField(max_length=30)
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
 

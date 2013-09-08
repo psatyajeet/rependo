@@ -9,12 +9,13 @@
   </div>
 </div>
 
-<form class="form-signup">
+<form class="form-signup" method="post" action="{% url 'reimbursement.views.signup_individual' %}">
+  {% csrf_token %}
   <h2 class="form-signup-heading">Individual Sign Up</h2>
-  <input type="text" class="form-control" placeholder="Email address" autofocus>
-  <input type="password" class="form-control" placeholder="Password">
-  <input type="text" class="form-control" placeholder="Division">
-  <input type="text" class="form-control" placeholder="Organization code">
+  <input name="email" type="text" class="form-control" placeholder="Email address" autofocus>
+  <input name="password" type="password" class="form-control" placeholder="Password">
+  <input name="division" type="text" class="form-control" placeholder="Division">
+  <input name="code" type="text" class="form-control" placeholder="Organization code">
   <p>Note: Request an organization code from your organization administrator. </p>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 </form>

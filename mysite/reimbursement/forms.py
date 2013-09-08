@@ -13,6 +13,6 @@ class SignupOrganizationForm(forms.Form):
 class SignupIndividualForm(forms.Form):
     username = forms.CharField(max_length=100)
     password = forms.CharField()
-    name = forms.CharField(max_length=30) 
-    company = forms.CharField(max_length=30)
+    division = forms.CharField(max_length=30) 
+    code = forms.CharField(max_length=30)
 
